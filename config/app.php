@@ -54,6 +54,24 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'domain' => env('APP_DOMAIN', 'localhost'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | API URL
+    |--------------------------------------------------------------------------
+    |
+    | The following domain and URLs will be used to allow API requests
+    | and send requests through frontend client applications.
+    |
+    */
+
+    'api' => [
+        'domain' => env('API_DOMAIN'),
+
+        'url' => env('API_URL'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
