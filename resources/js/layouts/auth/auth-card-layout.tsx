@@ -6,7 +6,7 @@ import { type PropsWithChildren } from 'react';
 export default function AuthCardLayout({
     children,
     title,
-    description,
+    description
 }: PropsWithChildren<{
     name?: string;
     title?: string;

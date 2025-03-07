@@ -10,18 +10,18 @@ const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
         url: '/settings/profile',
-        icon: null,
+        icon: null
     },
     {
         title: 'Password',
         url: '/settings/password',
-        icon: null,
+        icon: null
     },
     {
         title: 'Appearance',
         url: '/settings/appearance',
-        icon: null,
-    },
+        icon: null
+    }
 ];
 
 export default function SettingsLayout({ children }: PropsWithChildren) {
@@ -46,7 +46,7 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
                                 variant="ghost"
                                 asChild
                                 className={cn('w-full justify-start', {
-                                    'bg-muted': currentPath === item.url,
+                                    'bg-muted': currentPath === item.url
                                 })}
                             >
                                 <Link href={item.url} prefetch>

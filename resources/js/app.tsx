@@ -16,8 +16,8 @@ createInertiaApp({
         root.render(<App {...props} />);
     },
     progress: {
-        color: '#4B5563',
-    },
+        color: '#4B5563'
+    }
 });
 
 // This will set light / dark mode on load...

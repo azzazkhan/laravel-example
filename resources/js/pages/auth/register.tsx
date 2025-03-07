@@ -21,13 +21,13 @@ export default function Register() {
         name: '',
         email: '',
         password: '',
-        password_confirmation: '',
+        password_confirmation: ''
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
+            onFinish: () => reset('password', 'password_confirmation')
         });
     };
 

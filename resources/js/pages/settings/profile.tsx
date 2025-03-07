@@ -15,8 +15,8 @@ import SettingsLayout from '@/layouts/settings/layout';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Profile settings',
-        href: '/settings/profile',
-    },
+        href: '/settings/profile'
+    }
 ];
 
 interface ProfileForm {
@@ -29,14 +29,14 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
         name: auth.user.name,
-        email: auth.user.email,
+        email: auth.user.email
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
         patch(route('profile.update'), {
-            preserveScroll: true,
+            preserveScroll: true
         });
     };
 

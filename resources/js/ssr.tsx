@@ -20,11 +20,11 @@ createServer((page) =>
                     // @ts-expect-error
                     ...page.props.ziggy,
                     // @ts-expect-error
-                    location: new URL(page.props.ziggy.location),
+                    location: new URL(page.props.ziggy.location)
                 });
             /* eslint-enable */
 
             return <App {...props} />;
-        },
-    }),
+        }
+    })
 );

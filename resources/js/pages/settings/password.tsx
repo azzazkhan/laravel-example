@@ -14,8 +14,8 @@ import { Label } from '@/components/ui/label';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Password settings',
-        href: '/settings/password',
-    },
+        href: '/settings/password'
+    }
 ];
 
 export default function Password() {
@@ -25,7 +25,7 @@ export default function Password() {
     const { data, setData, errors, put, reset, processing, recentlySuccessful } = useForm({
         current_password: '',
         password: '',
-        password_confirmation: '',
+        password_confirmation: ''
     });
 
     const updatePassword: FormEventHandler = (e) => {
@@ -44,7 +44,7 @@ export default function Password() {
                     reset('current_password');
                     currentPasswordInput.current?.focus();
                 }
-            },
+            }
         });
     };
 
@@ -54,7 +54,10 @@ export default function Password() {
 
             <SettingsLayout>
                 <div className="space-y-6">
-                    <HeadingSmall title="Update password" description="Ensure your account is using a long, random password to stay secure" />
+                    <HeadingSmall
+                        title="Update password"
+                        description="Ensure your account is using a long, random password to stay secure"
+                    />
 
                     <form onSubmit={updatePassword} className="space-y-6">
                         <div className="grid gap-2">
