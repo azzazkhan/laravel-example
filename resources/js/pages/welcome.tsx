@@ -46,6 +46,14 @@ export default function Welcome() {
                                 Laravel has an incredibly rich ecosystem.
                                 <br />
                                 We suggest starting with the following.
+                                <br />
+                                <div className="bg-muted mt-2.5 flex flex-col gap-0.5 rounded-md p-2.5 font-mono text-xs whitespace-nowrap">
+                                    <span>VITE_APP_NAME: {import.meta.env.VITE_APP_NAME}</span>
+                                    <span>VITE_APP_DOMAIN: {import.meta.env.VITE_APP_DOMAIN}</span>
+                                    <span>VITE_APP_URL: {import.meta.env.VITE_APP_URL}</span>
+                                    <span>VITE_API_DOMAIN: {import.meta.env.VITE_API_DOMAIN}</span>
+                                    <span>VITE_API_URL: {import.meta.env.VITE_API_URL}</span>
+                                </div>
                             </p>
                             <ul className="mb-4 flex flex-col lg:mb-6">
                                 <li className="relative flex items-center gap-4 py-2 before:absolute before:top-1/2 before:bottom-0 before:left-[0.4rem] before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A]">
