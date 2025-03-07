@@ -1,0 +1,58 @@
+services:
+    nginx:
+        image: laravel/nginx
+        build:
+            context: ./docker/nginx
+            dockerfile: Dockerfile.nginx
+        environment:
+            SERVER_NAME: '${APP_DOMAIN:-laravel.localhost}'
+        volumes:
+            - source:/var/www/public:ro
+            - ./storage:/var/www/storage:ro
+            - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+        networks:
+            - laravel
+            - traefik
+        depends_on:
+            - app
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.laravel-nginx.rule=Host(`${APP_DOMAIN:-laravel.localhost}`) || Host(`${API_DOMAIN:-api.laravel.localhost}`)
+            - traefik.http.routers.laravel-nginx.entrypoints=web
+            - traefik.http.services.laravel-nginx-service.loadbalancer.server.port=80
+
+    app:
+        image: laravel/app
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                VITE_APP_NAME: Laravel
+                VITE_APP_DOMAIN: laravel.localhost
+                VITE_APP_URL: http://laravel.localhost
+                VITE_API_DOMAIN: api.laravel.localhost
+                VITE_API_URL: http://api.laravel.localhost
+        restart: unless-stopped
+        environment:
+            AUTORUN_ENABLED: true
+            AUTORUN_LARAVEL_MIGRATION_ISOLATION: true
+            PHP_OPCACHE_ENABLE: 1
+            PHP_MEMORY_LIMIT: 128M
+            PHP_UPLOAD_MAX_FILE_SIZE: 10M
+            PHP_POST_MAX_SIZE: 10M
+        volumes:
+            - source:/var/www/public:rw
+            - ./.env:/var/www/.env:ro
+            - ./storage:/var/www/storage:rw
+        networks:
+            - laravel
+            - traefik
+
+volumes:
+    source:
+
+networks:
+    laravel:
+    traefik:
+        external: true
