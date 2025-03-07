@@ -47,12 +47,14 @@ export default function Welcome() {
                                 <br />
                                 We suggest starting with the following.
                                 <br />
-                                <div className="bg-muted mt-2.5 flex flex-col gap-0.5 rounded-md p-2.5 font-mono text-xs whitespace-nowrap">
-                                    <span>VITE_APP_NAME: {import.meta.env.VITE_APP_NAME}</span>
-                                    <span>VITE_APP_DOMAIN: {import.meta.env.VITE_APP_DOMAIN}</span>
-                                    <span>VITE_APP_URL: {import.meta.env.VITE_APP_URL}</span>
-                                    <span>VITE_API_DOMAIN: {import.meta.env.VITE_API_DOMAIN}</span>
-                                    <span>VITE_API_URL: {import.meta.env.VITE_API_URL}</span>
+                                <div className="bg-muted mt-2.5 rounded-md p-2.5">
+                                    <p className="scrollbar-hide flex flex-col gap-0.5 overflow-y-auto font-mono text-xs whitespace-nowrap">
+                                        <span>VITE_APP_NAME: {import.meta.env.VITE_APP_NAME}</span>
+                                        <span>VITE_APP_DOMAIN: {import.meta.env.VITE_APP_DOMAIN}</span>
+                                        <span>VITE_APP_URL: {import.meta.env.VITE_APP_URL}</span>
+                                        <span>VITE_API_DOMAIN: {import.meta.env.VITE_API_DOMAIN}</span>
+                                        <span>VITE_API_URL: {import.meta.env.VITE_API_URL}</span>
+                                    </p>
                                 </div>
                             </p>
                             <ul className="mb-4 flex flex-col lg:mb-6">

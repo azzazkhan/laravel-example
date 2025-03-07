@@ -25,7 +25,8 @@ COPY --chown=www-data:www-data --from=composer /var/www/vendor ./vendor
 COPY --chown=www-data:www-data tsconfig.json vite.config.ts ./
 COPY --chown=www-data:www-data resources ./resources
 
-RUN yarn run build
+RUN rm -rf public/build bootstrap/ssr \
+    && yarn run build
 
 # Base application
 
